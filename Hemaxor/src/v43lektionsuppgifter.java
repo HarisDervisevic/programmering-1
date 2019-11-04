@@ -7,7 +7,7 @@ public class v43lektionsuppgifter {
 		Scanner input=new Scanner(System.in);
 	
 		
-		min(2,6);
+		System.out.println(min(2,6));
 	}
 	
 
