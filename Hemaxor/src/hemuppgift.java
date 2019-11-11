@@ -5,7 +5,7 @@ public class hemuppgift {
 		
 		System.out.println(fahrenheitTocelsius(50.));
 		
-	
+		System.out.println(KelvinToCelsius(0.));
 		
 		
 	}
@@ -14,6 +14,11 @@ public class hemuppgift {
 		return (fahrenheit-32)/1.8;
 	}
 	
+	public static double KelvinToCelsius(double kelvin) {
+		return (kelvin-273.15);
+	}
+	
+
 
 	
 	
