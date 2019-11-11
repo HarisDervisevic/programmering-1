@@ -7,7 +7,7 @@ public class hemuppgift {
 		
 		System.out.println(KelvinToCelsius(0.));
 		
-		
+		System.out.println(fluidPressure(FluidTable.WATER,10));
 	}
 	
 	public static double fahrenheitTocelsius(double fahrenheit) {
@@ -17,6 +17,15 @@ public class hemuppgift {
 	public static double KelvinToCelsius(double kelvin) {
 		return (kelvin-273.15);
 	}
+	
+	public static double fluidPressure(FluidTable fluid, double deep) {
+		
+		double Pressure = fluid.density*g*deep;
+		
+		return Pressure;
+	}
+	
+	
 	
 
 
