@@ -34,7 +34,10 @@ public class hemuppgift {
 		System.out.println(AverageSpeed(10,5));
 		
 		System.out.println(Distance(10,5));
+		
+		System.out.println(Time(10,2));
 	}
+	
 	
 	public static double fahrenheitTocelsius(double fahrenheit) {
 		return (fahrenheit-32)/1.8;
@@ -88,10 +91,14 @@ public class hemuppgift {
 	
 	public static double Distance(double velocity, double time) {
 		return(velocity*time);
+	}
 	
+	static double Time(double distance, double velocity) {
+		return(distance/velocity);
 		
 	}
 	}
+	
 	
 	
 
