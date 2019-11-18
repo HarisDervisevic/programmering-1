@@ -32,6 +32,8 @@ public class hemuppgift {
 		System.out.println(gasvolumeToMass(GasTable.AIR,1));
 		
 		System.out.println(AverageSpeed(10,5));
+		
+		System.out.println(Distance(10,5));
 	}
 	
 	public static double fahrenheitTocelsius(double fahrenheit) {
@@ -84,6 +86,11 @@ public class hemuppgift {
 		return (distance/time);
 	}
 	
+	public static double Distance(double velocity, double time) {
+		return(velocity*time);
+	
+		
+	}
 	}
 	
 	
