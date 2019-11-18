@@ -46,6 +46,8 @@ public class hemuppgift {
 		System.out.println(heatfluid(FluidTable.WATER,1,10));
 		
 		System.out.println(heatGas(GasTable.AIR,1,1));
+		
+		System.out.println(velocityToHeight(9.82));
 	}
 	
 	
@@ -128,6 +130,10 @@ public class hemuppgift {
 		return(GasTable.AIR.heatCapacity * mass * deltaT);
 		}
 		
+	
+	static double velocityToHeight(double velocity) {
+	return (Math.pow(Math.sin(1.570796), 2) * Math.pow(velocity, 2)) / (2 * g);
+	}
 	}
 	
 	
