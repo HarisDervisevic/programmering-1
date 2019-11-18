@@ -8,6 +8,10 @@ public class hemuppgift {
 		System.out.println(KelvinToCelsius(0.));
 		
 		System.out.println(fluidPressure(FluidTable.WATER,10));
+		
+		System.out.println(pressureunderWater(10));
+		
+		System.out.println(kineticEnergy(2,2));
 	}
 	
 	public static double fahrenheitTocelsius(double fahrenheit) {
@@ -25,12 +29,12 @@ public class hemuppgift {
 		return Pressure;
 	}
 	
+	public static double pressureunderWater(double deep) {
+		
+		return(FluidTable.WATER.density*9.82*deep);
+		
+	}
 	
-	
-
-
-	
-	
-	
+     
 	
 }
