@@ -38,6 +38,8 @@ public class hemuppgift {
 		System.out.println(Time(10,2));
 		
 		System.out.println(work(50,10));
+		
+		System.out.println(power(1000,2));
 	}
 	
 	
@@ -103,8 +105,9 @@ public class hemuppgift {
 		return(force*distance);
 	}
 	
-	
-		
+	static double power(double work, double time) {
+		return(work/time);
+	}
 	
 	}
 	
