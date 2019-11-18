@@ -26,6 +26,8 @@ public class hemuppgift {
 		System.out.println(fallSpeed(2.5));
 		
 		System.out.println(delta(1,10));
+		
+		System.out.println(volumeToMass(FluidTable.WATER,1));
 	}
 	
 	public static double fahrenheitTocelsius(double fahrenheit) {
@@ -64,6 +66,12 @@ public class hemuppgift {
 	
 	public static double delta(double first, double last) {
 		return(first-last);
+	}
+	
+	static double volumeToMass(FluidTable fluid, double volume) {
+		return (fluid.density*volume);
+		
+	}
 	
 	}
-}
+
