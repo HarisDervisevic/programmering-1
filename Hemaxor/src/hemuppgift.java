@@ -40,6 +40,10 @@ public class hemuppgift {
 		System.out.println(work(50,10));
 		
 		System.out.println(power(1000,2));
+		
+		System.out.println(heat(SolidTable.IRON,1,2));
+		
+		System.out.println(heat(FluidTable.WATER,1,10));
 	}
 	
 	
@@ -109,7 +113,15 @@ public class hemuppgift {
 		return(work/time);
 	}
 	
+	static double heat(SolidTable solid, double mass, double deltaT) {
+		return (SolidTable.IRON.heatCapacity * mass * deltaT);
+		
 	}
+	
+	
+	}
+	
+	
 	
 	
 	
