@@ -41,9 +41,11 @@ public class hemuppgift {
 		
 		System.out.println(power(1000,2));
 		
-		System.out.println(heat(SolidTable.IRON,1,2));
+		System.out.println(heatsolid(SolidTable.IRON,1,2));
 		
-		System.out.println(heat(FluidTable.WATER,1,10));
+		System.out.println(heatfluid(FluidTable.WATER,1,10));
+		
+		System.out.println(heatGas(GasTable.AIR,1,1));
 	}
 	
 	
@@ -113,18 +115,21 @@ public class hemuppgift {
 		return(work/time);
 	}
 	
-	static double heat(SolidTable solid, double mass, double deltaT) {
+	static double heatsolid(SolidTable solid, double mass, double deltaT) {
 		return (SolidTable.IRON.heatCapacity * mass * deltaT);
 		
 	}
 	
-	static double heat(FluidTable fluid, double mass, double deltaT) {
+	static double heatfluid(FluidTable fluid, double mass, double deltaT) {
 		return(FluidTable.WATER.heatCapacity * mass * deltaT);
+	}
 		
-		
+	static double heatGas(GasTable gas, double mass, double deltaT) {
+		return(GasTable.AIR.heatCapacity * mass * deltaT);
+		}
 		
 	}
-	}
+	
 	
 	
 	
