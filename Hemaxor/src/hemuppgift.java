@@ -35,6 +35,9 @@ public class hemuppgift {
 		
 	}
 	
-     
+	public static double kineticEnergy(double mass, double velocity) {
+		return(0.5*mass*Math.pow(velocity, 2));
+		
+     }
 	
 }
