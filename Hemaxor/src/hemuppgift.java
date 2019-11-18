@@ -118,7 +118,12 @@ public class hemuppgift {
 		
 	}
 	
-	
+	static double heat(FluidTable fluid, double mass, double deltaT) {
+		return(FluidTable.WATER.heatCapacity * mass * deltaT);
+		
+		
+		
+	}
 	}
 	
 	
