@@ -36,6 +36,8 @@ public class hemuppgift {
 		System.out.println(Distance(10,5));
 		
 		System.out.println(Time(10,2));
+		
+		System.out.println(work(50,10));
 	}
 	
 	
@@ -95,9 +97,17 @@ public class hemuppgift {
 	
 	static double Time(double distance, double velocity) {
 		return(distance/velocity);
+	}
+	
+	static double work(double force, double distance) {
+		return(force*distance);
+	}
+	
+	
 		
+	
 	}
-	}
+	
 	
 	
 	
