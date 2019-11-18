@@ -12,6 +12,8 @@ public class hemuppgift {
 		System.out.println(pressureunderWater(10));
 		
 		System.out.println(kineticEnergy(2,2));
+		
+		System.out.println(potentialEnergy(2,5));
 	}
 	
 	public static double fahrenheitTocelsius(double fahrenheit) {
@@ -40,4 +42,9 @@ public class hemuppgift {
 		
      }
 	
+	public static double potentialEnergy(double mass, double height) {
+	   
+		return(mass*9.82*height);
+	
+	}
 }
