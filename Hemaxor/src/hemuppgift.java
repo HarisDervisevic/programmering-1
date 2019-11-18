@@ -27,7 +27,9 @@ public class hemuppgift {
 		
 		System.out.println(delta(1,10));
 		
-		System.out.println(volumeToMass(FluidTable.WATER,1));
+		System.out.println(fluidvolumeToMass(FluidTable.WATER,1));
+		
+		System.out.println(gasvolumeToMass(GasTable.AIR,1));
 	}
 	
 	public static double fahrenheitTocelsius(double fahrenheit) {
@@ -68,10 +70,15 @@ public class hemuppgift {
 		return(first-last);
 	}
 	
-	static double volumeToMass(FluidTable fluid, double volume) {
+	static double fluidvolumeToMass(FluidTable fluid, double volume) {
 		return (fluid.density*volume);
-		
 	}
+	
+	static double gasvolumeToMass(GasTable Gas, double volume) {
+		return (Gas.density*volume);
+	}
+	
+	
 	
 	}
 
