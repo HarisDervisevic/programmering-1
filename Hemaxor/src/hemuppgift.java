@@ -5,7 +5,7 @@ public class hemuppgift {
 	
 	static double r=8.3145;
 	
-	static double p_0=1000;
+	static double p_0=1013;
 	
 	static double c = 299792458;
 	
@@ -30,6 +30,8 @@ public class hemuppgift {
 		System.out.println(fluidvolumeToMass(FluidTable.WATER,1));
 		
 		System.out.println(gasvolumeToMass(GasTable.AIR,1));
+		
+		System.out.println(AverageSpeed(10,5));
 	}
 	
 	public static double fahrenheitTocelsius(double fahrenheit) {
@@ -78,7 +80,11 @@ public class hemuppgift {
 		return (Gas.density*volume);
 	}
 	
-	
+	public static double AverageSpeed(double distance, double time) {
+		return (distance/time);
+	}
 	
 	}
+	
+	
 
