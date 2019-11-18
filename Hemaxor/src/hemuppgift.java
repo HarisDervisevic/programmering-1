@@ -1,6 +1,14 @@
 
 public class hemuppgift {
+	
 	static double g=9.82;
+	
+	static double r=8.3145;
+	
+	static double p_0=1000;
+	
+	static double c = 299792458;
+	
 	public static void main(String[] args) {
 		
 		System.out.println(fahrenheitTocelsius(50.));
