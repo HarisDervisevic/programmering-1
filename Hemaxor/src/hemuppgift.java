@@ -11,10 +11,29 @@ public class hemuppgift {
 	
 	public static void main(String[] args) {
 		
+		//Svar till frågorna
 		
+		//Fråga 1
+		System.out.println(solidvolumeToMass(SolidTable.IRON,60));
+		
+		//Fråga 2
 		System.out.println(Distance(2.7,50) );
+		
+		//Fråga 3
+		System.out.println(heatfluid(FluidTable.WATER,4,22));
+		
+		//Fråga 4
+		System.out.println(pressureunderWater(75));
+		
+		//Fråga 5
+		System.out.println(velocityToHeight(60));
+		
+		//Fråga 6
+		System.out.println(CalculatedEffectForCarMotor(735, 100,4.8));
 	}
 	
+	
+
 	/**
 	 * Den omvandlar gradenheterna fahrenheit till celsius
 	 * @param fahrenheit stoppar in graderna i fahrenheit
@@ -223,8 +242,22 @@ public class hemuppgift {
 	static double velocityToHeight(double velocity) {
 	return (Math.pow(Math.sin(1.570796), 2) * Math.pow(velocity, 2)) / (2 * g);
 	}
-	}
+
+	//Egena metoder
+     
 	
+	/**
+	 * Denna metoden räknar ut hur mycket effekt en bilmotor uppnår beroende på massa tid och hastighet
+	 * @param mass Här tar jag in bilens massa
+	 * @param maxVelocity här skriver man in bilens hatighet som den uppnåt
+	 * @param time Här är tiden du uppnåt hastigheten på
+	 * @return Tillbaka får du Effekten en bilmotor uppnåt som beror på tiden 
+	 */
+    public static double CalculatedEffectForCarMotor(double mass, double maxVelocity, double time) {
+	double p = mass*maxVelocity*maxVelocity/2;
+	return(p/time);
+}
+}
 	
 	
 	
