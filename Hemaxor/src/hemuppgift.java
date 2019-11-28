@@ -8,6 +8,8 @@ public class hemuppgift {
 	static double p_0 = 1013;
 
 	static double c = 299792458;
+	
+	static double g_swe = 9.82;
 
 	public static void main(String[] args) {
 
