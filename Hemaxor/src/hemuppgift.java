@@ -34,9 +34,19 @@ public class hemuppgift {
 		// Fråga 7
 		System.out.println(bounceCount(1,12));
 
-		// Egen fråga
+		// Egen fråga 1
 		// Hur mycket är 100kmh/ i meter per sekund
 		System.out.println(velocityExchangeMS(100));
+		
+		
+		// Egen fråga 2
+		// Hur mycket är 40m/s i kilometer 
+		System.out.println(velocityExchangeKMH(40));
+		
+		
+		//Egen fråga 3
+	    //Vilken är tyngdkraften som verkar på ett föremål som väger 20kg
+		System.out.println(tyngdkraft(20));
 	}
 
 	/**
@@ -301,6 +311,13 @@ public class hemuppgift {
 		double p = mass * maxVelocity * maxVelocity / 2;
 		return (p / time);
 	}
+	
+	/**
+	 * Denna metoden räknar ut hur många gånger föremålet studstar när den förlorar 1% av energi vid varje studs tills den når höjden 0.5 meter
+	 * @param mass tar in föremålets massa
+	 * @param height det är höjden man släpper föremålet från (starthöjden)
+	 * @return
+	 */
 
 	public static int bounceCount(double mass, double height) {
 		
@@ -332,10 +349,49 @@ public class hemuppgift {
 	 * Denna metoden gör om enheten kilomter i timmen till meter per sekund
 	 * 
 	 * @param kmh här tar jag in hastigheten i killometer i timmen
-	 * @return tillbaka får jag hastigheten i enheten meter per sekund
+	 * @return tillbaka får jag hastigheten i enheten meter per sekund /
 	 */
 	public static double velocityExchangeMS(double kmh) {
 		return (kmh/3.6);
 	}
 
-}
+	/**
+	 * Dennna metoden räknar ut tyngdkraften som verkar på ett föremål beroend på vad föremålet väger
+	 * @param mass hur mycket färemåle väger
+	 * @return tillbaka får jag vad tyngdkraften som verkar på föremålet är
+	 */
+	public static double tyngdkraft(double mass) { 
+		return(mass*g);
+	}
+	
+	/**
+	 * Denna metoden räknar ut ett föremåls rörelse mängd
+	 * @param mass här tar jag in föremålets massa/ vikt
+	 * @param velocity här tar hastigheten in, i meter per sekund
+	 * @return tillbaka får du rörelsemängden på föremålet
+	 */
+	public static double momentum(double mass, double velocity) { 
+		return(mass*velocity);
+	}
+	
+	/**
+	 * Denna metoden räknar ut accelationen på något som rör sig med konstant hastighet
+	 * @param velocity här tar jag in hastigheten i meter per sekund
+	 * @param time här tar jag in tiden som något har rört sig på
+	 * @return tillbaka får jag acceleation på det som rör sig
+	 */
+	public static double acceleation(double velocity, double time) {
+		return(velocity/time);
+	}
+	
+	/**
+	 * Denna metoden räknar ut densitet på en vätska/föremål med massan och volymen
+	 * @param mass här tar jag in massan på det jag ska räkna densiteten på
+	 * @param volume här tar jag in dens volym
+	 * @return tillbaka får jag vätskan/färemålets densitet
+	 */
+	public static double density(double mass, double volume) { //8
+		return(mass/volume);
+	}
+	}
+
