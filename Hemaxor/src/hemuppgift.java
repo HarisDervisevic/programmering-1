@@ -32,20 +32,18 @@ public class hemuppgift {
 		System.out.println(CalculatedEffectForCarMotor(735, 100, 4.8));
 
 		// Fråga 7
-		System.out.println(bounceCount(1,12));
+		System.out.println(bounceCount(1, 12));
 
 		// Egen fråga 1
 		// Hur mycket är 100kmh/ i meter per sekund
 		System.out.println(velocityExchangeMS(100));
-		
-		
+
 		// Egen fråga 2
-		// Hur mycket är 40m/s i kilometer 
+		// Hur mycket är 40m/s i kilometer
 		System.out.println(velocityExchangeKMH(40));
-		
-		
-		//Egen fråga 3
-	    //Vilken är tyngdkraften som verkar på ett föremål som väger 20kg
+
+		// Egen fråga 3
+		// Vilken är tyngdkraften som verkar på ett föremål som väger 20kg
 		System.out.println(tyngdkraft(20));
 	}
 
@@ -311,29 +309,31 @@ public class hemuppgift {
 		double p = mass * maxVelocity * maxVelocity / 2;
 		return (p / time);
 	}
-	
+
 	/**
-	 * Denna metoden räknar ut hur många gånger föremålet studstar när den förlorar 1% av energi vid varje studs tills den når höjden 0.5 meter
-	 * @param mass tar in föremålets massa
+	 * Denna metoden räknar ut hur många gånger föremålet studstar när den förlorar
+	 * 1% av energi vid varje studs tills den når höjden 0.5 meter
+	 * 
+	 * @param mass   tar in föremålets massa
 	 * @param height det är höjden man släpper föremålet från (starthöjden)
 	 * @return
 	 */
 
 	public static int bounceCount(double mass, double height) {
-		
-		int bouncecounter =0;
-		double kineticEnergy = mass*g*height;
-		
-		while(height>=0.5) {
-		kineticEnergy = kineticEnergy*0.99;
-		
-		height=(kineticEnergy/(mass*g));
-		
-		bouncecounter++;
-		
+
+		int bouncecounter = 0;
+		double kineticEnergy = mass * g * height;
+
+		while (height >= 0.5) {
+			kineticEnergy = kineticEnergy * 0.99;
+
+			height = (kineticEnergy / (mass * g));
+
+			bouncecounter++;
+
 		}
-    	return bouncecounter;
-    }
+		return bouncecounter;
+	}
 
 	/**
 	 * Denna metoden gör om enheten meter per sekund till kilometer per timme
@@ -352,61 +352,67 @@ public class hemuppgift {
 	 * @return tillbaka får jag hastigheten i enheten meter per sekund /
 	 */
 	public static double velocityExchangeMS(double kmh) {
-		return (kmh/3.6);
+		return (kmh / 3.6);
 	}
 
 	/**
-	 * Dennna metoden räknar ut tyngdkraften som verkar på ett föremål beroend på vad föremålet väger
+	 * Dennna metoden räknar ut tyngdkraften som verkar på ett föremål beroend på
+	 * vad föremålet väger
+	 * 
 	 * @param mass hur mycket färemåle väger
 	 * @return tillbaka får jag vad tyngdkraften som verkar på föremålet är
 	 */
-	public static double tyngdkraft(double mass) { 
-		return(mass*g);
+	public static double tyngdkraft(double mass) {
+		return (mass * g);
 	}
-	
+
 	/**
 	 * Denna metoden räknar ut ett föremåls rörelse mängd
-	 * @param mass här tar jag in föremålets massa/ vikt
+	 * 
+	 * @param mass     här tar jag in föremålets massa/ vikt
 	 * @param velocity här tar hastigheten in, i meter per sekund
 	 * @return tillbaka får du rörelsemängden på föremålet
 	 */
-	public static double momentum(double mass, double velocity) { 
-		return(mass*velocity);
+	public static double momentum(double mass, double velocity) {
+		return (mass * velocity);
 	}
-	
+
 	/**
-	 * Denna metoden räknar ut accelationen på något som rör sig med konstant hastighet
+	 * Denna metoden räknar ut accelationen på något som rör sig med konstant
+	 * hastighet
+	 * 
 	 * @param velocity här tar jag in hastigheten i meter per sekund
-	 * @param time här tar jag in tiden som något har rört sig på
+	 * @param time     här tar jag in tiden som något har rört sig på
 	 * @return tillbaka får jag acceleation på det som rör sig
 	 */
 	public static double acceleation(double velocity, double time) {
-		return(velocity/time);
+		return (velocity / time);
 	}
-	
+
 	/**
 	 * Denna metoden räknar ut densitet på en vätska/föremål med massan och volymen
-	 * @param mass här tar jag in massan på det jag ska räkna densiteten på
+	 * 
+	 * @param mass   här tar jag in massan på det jag ska räkna densiteten på
 	 * @param volume här tar jag in dens volym
 	 * @return tillbaka får jag vätskan/färemålets densitet
 	 */
-	public static double density(double mass, double volume) { 
-		return(mass/volume);
+	public static double density(double mass, double volume) {
+		return (mass / volume);
 	}
-	
+
 	/**
-	 * denna metoden räknar ut relationen mellan energin hos en kropp, och dess massa 
+	 * denna metoden räknar ut relationen mellan energin hos en kropp, och dess
+	 * massa
+	 * 
 	 * @param masstar jag in massan
 	 * @return tillbaka får jag massan i energi
 	 */
 	public static double MassEnergykvivalensen(double mass) {
-		return (mass*Math.pow(c, 2));
+		return (mass * Math.pow(c, 2));
 	}
-	 
-	public static double current(double chargeAmount, double time) {
-		return(chargeAmount/time);
-	}
-	
-}
-	
 
+	public static double current(double chargeAmount, double time) {
+		return (chargeAmount / time);
+	}
+
+}
