@@ -390,8 +390,23 @@ public class hemuppgift {
 	 * @param volume här tar jag in dens volym
 	 * @return tillbaka får jag vätskan/färemålets densitet
 	 */
-	public static double density(double mass, double volume) { //8
+	public static double density(double mass, double volume) { 
 		return(mass/volume);
 	}
+	
+	/**
+	 * denna metoden räknar ut relationen mellan energin hos en kropp, och dess massa 
+	 * @param masstar jag in massan
+	 * @return tillbaka får jag massan i energi
+	 */
+	public static double MassEnergykvivalensen(double mass) {
+		return (mass*Math.pow(c, 2));
 	}
+	 
+	public static double current(double chargeAmount, double time) {
+		return(chargeAmount/time);
+	}
+	
+}
+	
 
