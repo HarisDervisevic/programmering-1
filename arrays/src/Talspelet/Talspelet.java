@@ -12,11 +12,19 @@ public class Talspelet {
 	 static Scanner str = new Scanner (System.in);
 	 
 	 static Scanner diff = new Scanner (System.in);
+	 
+	 /**
+	  * Denna metoden startar spelet
+	  * @param args
+	  */
 
 public static void main(String[] args) {
 	startMenu();
   }
 		
+   /** Detta är start menyn som väkommnar dig in i spelet och du väljer även vilken svårighetsgrad 
+   * du vill köra på och ger dig anatlet gissningar du får och intervallet på svårighetsgraden
+   */
   public static void startMenu() {
        
 	  
@@ -35,7 +43,10 @@ public static void main(String[] args) {
 }
   
   
-  
+  /**
+   * Denna metoden kallar på svårighetsgraden man valt och här valde jag att använda mig av 
+   * switch case, som kalla på den svårighetsgrad användraen valt
+   */
   public static void choosenDifficulty() {
 	  
 	  String choosenDifficulty = str.nextLine();
@@ -59,6 +70,13 @@ public static void main(String[] args) {
 	break;	
 	}	
   }
+  
+  /**
+   * Denna metoden är den som kör själva spelet fast den enklaste svårighetsgraden där while
+   * loopen lörs till användaren gissat rätt. Kallar även på doesIntContain som kör try catch på
+   * gissningen för att se ifall det är en siffra. När man gissat rätt kommer man till anotherRound
+   * metoden som frågar om du vill köra om igen. Här är även ledtrådarna mer exakta
+   */
   
   public static void easyDifficulty() {
 	  
@@ -108,6 +126,9 @@ public static void main(String[] args) {
 	  
 	   }
   
+  /**
+   * Denna metoden är detsamma som den innan fast svårare större intervall men lite gissningar
+   */
   public static void normalDifficulty() {
 	  
 	  int rigthAnswer = 1+ ((int)(Math.random() * ((25-1) )));
@@ -158,7 +179,9 @@ public static void main(String[] args) {
   }
   
   
-  
+  /**
+   * Här är ledtrådarna mindre specifika och intervallet är större fast med mindre gissningar
+   */
   public static void hardDifficulty() {
 	  
 	  int rigthAnswer = 1+ ((int)(Math.random() * ((50-1) )));
@@ -198,6 +221,12 @@ public static void main(String[] args) {
 	  
 	   }
   
+  /**
+   * den kollar om användarens gissning är en siffra eller bokstav, om det är en bostav så måste spelaren 
+   * gissa om.
+   * @return den returnar spelarens gissnig så att spelet kan fortsättas med guess
+   * annars returnar den text som säger till spelaren att gissa om 
+   */
   public static int doesIntConatin() {
 	  
    while (true) {
@@ -214,7 +243,11 @@ public static void main(String[] args) {
    }
   }
   
-  
+  /**
+   * Denna metoden skickas man till om man antigen vunnit eller fått slut på gissningar,
+   *den frågar om du vill kö en til runda då skickas du tillbaka till start annars avslutas 
+   *programmet
+   */
   public static void anotherRound() {
 	  System.out.println("");
 	  System.out.println("The game is finished, Do you want to play another round? /n Answer in Yes or No/n");
