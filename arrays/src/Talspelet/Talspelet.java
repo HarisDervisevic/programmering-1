@@ -49,7 +49,7 @@ public static void main(String[] args) {
 	
 	case "normal":System.out.println("You haven now choosen the normal difficulty\n");
 	
-	
+	normalDifficulty();
 	break;
 	
 	case "hard": System.out.println("You have now choosen the hard difficulty\n\n\n");
@@ -58,10 +58,6 @@ public static void main(String[] args) {
 	break;	
 	}	
   }
-  
-  
-  
-  
   
   public static void easyDifficulty() {
 	  
@@ -111,8 +107,58 @@ public static void main(String[] args) {
 	  
 	   }
   
+  public static void normalDifficulty() {
+	  
+	  Scanner normal = new Scanner (System.in);
+	  
+	  System.out.println("Game has started, you have 10 guesses, Good luck!");
+	  
+	  
+  while( guessCounter<=10) {
+	  
+		 guess = normal.nextInt();
+		   
+			  
+		if(guess==rigthAnswer ){
+		   System.out.println("Congrats! you guessed the right nummber\nTries:" +guessCounter);
+		  }
 		  
-}
+		else if (guess>25) {
+			System.out.println("Your guess is outside of the intervall, try again nummbber between 1-25\n");
+		}
+		
+		else if (guess - rigthAnswer == 1) {
+         System.out.println("Wrong, but very close");
+         
+		}
+		
+		else if (guess - rigthAnswer == -1) {
+         System.out.println("Wrong, but very close");
+         
+		}
+		
+		  else if(guess<rigthAnswer ){
+				
+				 System.out.println("Wrong,the nummber is higher\n" );
+			  }
+		
+		  else if(guess>rigthAnswer ) {
+			 
+			  System.out.println("Wrong! ,the nummber is lower\n ");
+		  }
+		guessCounter++;
+		
+	  }
+	  
+	  System.out.println("Sorry:( You ran out of guesses");
+	  System.out.println("The right nummber was:" + rigthAnswer );  
+	  
+  }
+  
+	  }
+
+		  
+
 
   
 
