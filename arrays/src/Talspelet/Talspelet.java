@@ -1,16 +1,17 @@
 package Talspelet;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Talspelet {
 	
 	static int guess;
-	
-	 static int rigthAnswer = 1+ ((int)(Math.random() * ((12-1) )));
 	 
 	 static int guessCounter = 1;
 	
 	 static Scanner str = new Scanner (System.in);
+	 
+	 static Scanner diff = new Scanner (System.in);
 
 public static void main(String[] args) {
 	startMenu();
@@ -61,16 +62,15 @@ public static void main(String[] args) {
   
   public static void easyDifficulty() {
 	  
-	  Scanner easy = new Scanner (System.in);
+	  int rigthAnswer = 1+ ((int)(Math.random() * ((12-1) )));
 	  
 	  System.out.println("Game has started, you have 9 guesses, Good luck!");
 	  
 
 	  while( guessCounter<=9) {
 		  
-		 guess = easy.nextInt();
-		   
-			  
+		  int guess = doesIntConatin();
+		  
 		if(guess==rigthAnswer ){
 		   System.out.println("Congrats! you guessed the right nummber\nTries:" +guessCounter);
 		  }
@@ -99,7 +99,6 @@ public static void main(String[] args) {
 			  System.out.println("Wrong! ,the nummber is lower\n ");
 		  }
 		guessCounter++;
-		
 	  }
 	  
 	  System.out.println("Sorry:( You ran out of guesses");
@@ -109,14 +108,14 @@ public static void main(String[] args) {
   
   public static void normalDifficulty() {
 	  
-	  Scanner normal = new Scanner (System.in);
+	  int rigthAnswer = 1+ ((int)(Math.random() * ((25-1) )));
 	  
 	  System.out.println("Game has started, you have 10 guesses, Good luck!");
 	  
 	  
   while( guessCounter<=10) {
 	  
-		 guess = normal.nextInt();
+	  int guess = doesIntConatin();
 		   
 			  
 		if(guess==rigthAnswer ){
@@ -159,14 +158,14 @@ public static void main(String[] args) {
   
   public static void hardDifficulty() {
 	  
-	  Scanner hard = new Scanner (System.in);
+	  int rigthAnswer = 1+ ((int)(Math.random() * ((50-1) )));
 	  
 	  System.out.println("Game has started, you have 10 guesses, Good luck!");
 	  
 
 	  while( guessCounter<=8) {
 		  
-		 guess = hard.nextInt();
+		  int guess = doesIntConatin();
 		   
 			  
 		if(guess==rigthAnswer ){
@@ -175,16 +174,6 @@ public static void main(String[] args) {
 		  
 		else if (guess>50) {
 			System.out.println("Your guess is outside of the intervall, try again nummbber between 1-50\n");
-		}
-		
-		else if (guess - rigthAnswer == 1) {
-            System.out.println("Wrong, but very close");
-            
-		}
-		
-		else if (guess - rigthAnswer == -1) {
-            System.out.println("Wrong, but very close");
-            
 		}
 		
 		  else if(guess<rigthAnswer ){
@@ -204,9 +193,24 @@ public static void main(String[] args) {
 	  System.out.println("The right nummber was:" + rigthAnswer );  
 	  
 	   }
-	  }
+  
+  public static int doesIntConatin() {
+	  
+   while (true) {
+    try {
+     guess=diff.nextInt();
+    }
+    catch (Exception e)
+    {
+     System.out.print("That’s not a nummber. Try again: ");
+     diff.nextLine();
+     return doesIntConatin();
+    }
+    return guess;
+   }
+  }
 
-		  
+}  
 
 
   
