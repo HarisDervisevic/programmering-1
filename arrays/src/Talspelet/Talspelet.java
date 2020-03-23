@@ -54,7 +54,7 @@ public static void main(String[] args) {
 	
 	case "hard": System.out.println("You have now choosen the hard difficulty\n\n\n");
 	
-	//kalla på metoden hard
+	hardDifficulty();
 	break;	
 	}	
   }
@@ -155,6 +155,55 @@ public static void main(String[] args) {
 	  
   }
   
+  
+  
+  public static void hardDifficulty() {
+	  
+	  Scanner hard = new Scanner (System.in);
+	  
+	  System.out.println("Game has started, you have 10 guesses, Good luck!");
+	  
+
+	  while( guessCounter<=8) {
+		  
+		 guess = hard.nextInt();
+		   
+			  
+		if(guess==rigthAnswer ){
+		   System.out.println("Congrats! you guessed the right nummber\nTries:" +guessCounter);
+		  }
+		  
+		else if (guess>50) {
+			System.out.println("Your guess is outside of the intervall, try again nummbber between 1-50\n");
+		}
+		
+		else if (guess - rigthAnswer == 1) {
+            System.out.println("Wrong, but very close");
+            
+		}
+		
+		else if (guess - rigthAnswer == -1) {
+            System.out.println("Wrong, but very close");
+            
+		}
+		
+		  else if(guess<rigthAnswer ){
+				
+				 System.out.println("Wrong,the nummber is higher\n" );
+			  }
+		
+		  else if(guess>rigthAnswer ) {
+			 
+			  System.out.println("Wrong! ,the nummber is lower\n ");
+		  }
+		guessCounter++;
+		
+	  }
+	  
+	  System.out.println("Sorry:( You ran out of guesses");
+	  System.out.println("The right nummber was:" + rigthAnswer );  
+	  
+	   }
 	  }
 
 		  
