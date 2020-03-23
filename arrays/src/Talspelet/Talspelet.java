@@ -73,6 +73,8 @@ public static void main(String[] args) {
 		  
 		if(guess==rigthAnswer ){
 		   System.out.println("Congrats! you guessed the right nummber\nTries:" +guessCounter);
+		   
+		   anotherRound();
 		  }
 		  
 		else if (guess>12) {
@@ -120,6 +122,7 @@ public static void main(String[] args) {
 			  
 		if(guess==rigthAnswer ){
 		   System.out.println("Congrats! you guessed the right nummber\nTries:" +guessCounter);
+		   anotherRound();
 		  }
 		  
 		else if (guess>25) {
@@ -169,7 +172,8 @@ public static void main(String[] args) {
 		   
 			  
 		if(guess==rigthAnswer ){
-		   System.out.println("Congrats! you guessed the right nummber\nTries:" +guessCounter);
+		   System.out.println("Congrats! you guessed the right nummber, Tries:" + guessCounter);
+		   anotherRound();
 		  }
 		  
 		else if (guess>50) {
@@ -209,6 +213,24 @@ public static void main(String[] args) {
     return guess;
    }
   }
+  
+  
+  public static void anotherRound() {
+	  System.out.println("");
+	  System.out.println("The game is finished, Do you want to play another round? /n Answer in Yes or No/n");
+	   String playAgain=str.nextLine();
+	  
+	switch(playAgain) {
+	  
+	  case "yes": startMenu();
+	  
+	  case "no":System.out.println("Thanks for playing the nummber game");
+	        System.exit(0);
+	      break;
+	  }
+  }
+
+
 
 }  
 
