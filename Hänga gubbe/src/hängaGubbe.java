@@ -3,19 +3,18 @@ import java.util.Scanner;
 
 public class hängaGubbe {
 	
-	static Scanner str = new Scanner (System.in);
-	
-	 static Random random = new Random();
-	
-	static String[] normal = new String[] {"adult" , "aware" , "bunch" , "cringe" , "setup"};
-	
-	static int normalWord = random.nextInt(normal.length);
-	
-	static String randomWord = normal[normalWord];
+	static Scanner input = new Scanner (System.in);
 	
 	private static int count = 0;
-	
 
+	private static String randomWord;
+
+	private static Object randomIndex;
+	
+	private static char a =' ';
+
+
+	
 
 	public static void main(String[] args) {
 		
@@ -50,7 +49,7 @@ public class hängaGubbe {
 	
 	public static void choosenDifficulty() {
 		
-		String choosenDifficulty =str.nextLine();
+		String choosenDifficulty =input.nextLine();
 		
 		switch(choosenDifficulty) {
 		
@@ -69,15 +68,70 @@ public class hängaGubbe {
 		}
 		
 	}
-
-	public static void normalDifficulty() {
+	
+	
+    public static void normalDifficulty() {
 		
+		randomizedWord( randomWord);
 		
+		checkIfContainsIntreger();
 		
-		System.out.println(normalWord);
+		System.out.println(a);
+		
+	
 		 
-		
+
 		
 	}
 	
-}
+	
+	public static String randomizedWord(Object randomIndex2) {
+		
+		String[] normalDifficulty = new String[] {"adult" , "aware" , "bunch" , "cringe" , "setup"};
+		
+		 Random randomizer = new Random();
+		 
+		 int randomIndex = randomizer.nextInt(normalDifficulty.length);
+		
+		 randomWord = normalDifficulty[randomIndex];
+		 
+		 for (int i = 0;i < randomWord.length(); i++){
+			    System.out.println(randomWord.charAt(i));
+			}
+
+		 
+		
+		 return(randomWord);
+		 
+	}
+	
+	
+	
+	public static char checkIfContainsIntreger() {
+		
+		
+	while (true){
+		
+		String playerGuess =input.nextLine();
+		
+		a = playerGuess.charAt(0);
+		
+		 if (!Character.isLetter(a)){
+             System.out.println("Only enter letters!");
+   }
+		 else if (Character.isLetter(a)) {
+			 
+		return (a);
+		 }
+		 
+	}
+	
+	}
+		}
+	
+
+
+	
+
+	
+	
