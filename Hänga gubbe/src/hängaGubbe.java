@@ -108,30 +108,25 @@ public class hängaGubbe {
 					if(randomWord.charAt(i) == playerGuessLetter) {
 						
 					playerGuess[i] = playerGuessLetter;
+					
+					isTheWordGuessed(playerGuess);
 					}
 					
-					else if(!(randomWord.charAt(i) == playerGuessLetter)) {
+					
+					else if (!(randomWord.charAt(i) == playerGuessLetter)) {
 						System.out.println("Wrong!!");
 						
 						wrongGuessCounter++;
 						
 						wrongGuess();
+						
+						
 					}
+					break;
 				}
 				
-				
-				if(isTheWordGuessed(playerGuess)) {
-					wordIsGuessed = true;
-					
-					System.out.println("");
-				}
-				
-				if(!wordIsGuessed) {
-					System.out.println("You have ran out of guesses");
-					
 				}
 		    }
-			}
     
 	private static void printArray(char[] playerGuess) {
 		
@@ -201,6 +196,97 @@ public class hängaGubbe {
 	}
 
        private static void wrongGuess() {
+    	   
+    	   
+    	   switch(wrongGuessCounter) {
+    	   
+    	   case 1 : System.out.print(" "
+    	   		+ "   +---+\n" +
+                   "  |   |\n" +
+                   "      |\n" +
+                   "      |\n" +
+                   "      |\n" +
+                   "      |\n" +
+                   "=========''', '''");;
+    	   System.out.println("You now only have 6 guesses left");
+    	   
+    	   break;
+    	   
+    	   case 2 :System.out.print("  "
+    	   		+ "   +---+\n" +
+                   "  |   |\n" +
+                   "  O   |\n" +
+                   "      |\n" +
+                   "      |\n" +
+                   "      |\n" +
+                   "=========''', '''");
+           System.out.println("You have 5 guesses left!");
+           break;
+           
+    	   case 3:
+               System.out.print("  "
+               		+ "   +---+\n" +
+                       "  |   |\n" +
+                       "  O   |\n" +
+                       "  |   |\n" +
+                       "      |\n" +
+                       "      |\n" +
+                       "=========''', '''");
+               System.out.println("You have 4 guesses left!!");
+               break;
+    	   
+    	   case 4 : 
+    		   System.out.print(" "
+               		+ "   +---+\n" +
+                       "  |   |\n" +
+                       "  O   |\n" +
+                       " /|   |\n" +
+                       "      |\n" +
+                       "      |\n" +
+                       "=========''', '''");
+               System.out.println("You have 3 guesses left!!!");
+               break;
+               
+    	   case 5 :
+    		   System.out.print(" "
+    		   		+ "   +---+\n" +
+                       "  |   |\n" +
+                       "  O   |\n" +
+                       " /|\\ |\n" +
+                       "      |\n" +
+                       "      |\n" +
+                       "=========''', '''");
+               System.out.println("You have 2 guesses left!!!!");
+               break;
+               
+    	   case 6 :
+    		   System.out.print(" "
+    		   		+ "   +---+\n" +
+                       "  |   |\n" +
+                       "  O   |\n" +
+                       " /|\\ |\n" +
+                       " /    |\n" +
+                       "      |\n" +
+                       "=========''', '''");
+               System.out.println("You are on your last guess, choose wisely");
+               break;
+               
+    	   case 7 :
+    		   System.out.print(" "
+    		   		+ "   +---+\n" +
+                       "  |   |\n" +
+                       "  O   |\n" +
+                       " /|\\ |\n" +
+                       " / \\ |\n" +
+                       "      |\n" +
+                       "=========''']");
+               System.out.println("You didnt manage to guess the right word:(");
+               System.out.println("The  rigth word was:" + " " + randomWord);
+               break;
+    	   
+    	   
+    	   
+    	   }
 
     	   
     	   
