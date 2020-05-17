@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,12 +8,20 @@ public class hängaGubbe {
 	
 	private static int count = 0;
 
+	private static char storedWord = ' ';
+	
 	private static String randomWord;
 
 	private static Object randomIndex;
 	
-	private static char a =' ';
-
+	private static char playerGuessLetter =' ';
+	
+	private static char[] playerGuess = new char ['_'];
+	
+	static int amountOfGuesses = 7;
+	
+	static int wrongGuessCounter= 0;
+	
 
 	
 
@@ -72,35 +81,83 @@ public class hängaGubbe {
 	
     public static void normalDifficulty() {
 		
-		randomizedWord( randomWord);
-		
-		checkIfContainsIntreger();
-		
-		System.out.println(a);
-		
-	
+    	randomizedWord();
+    
+    	
+    	 for(int i = 0; i < randomWord.length(); i++) {
+			 playerGuess[i] ='_';
+		 }
 		 
+    	
+  
+		boolean wordIsGuessed = false;
+		
+		 while(wrongGuessCounter<= 7 && !wordIsGuessed) {
+			 
+			 System.out.println("Current guesses");
+			 
+			printArray(playerGuess);
+			 
+			 System.out.printf("You have this many guesses left:", amountOfGuesses - count);
+			 
+			 checkIfContainsIntreger();
+				
+				
+				for(int i =0;i < randomWord.length(); i++) {
+					
+					if(randomWord.charAt(i) == playerGuessLetter) {
+						
+					playerGuess[i] = playerGuessLetter;
+					}
+					
+					else if(!(randomWord.charAt(i) == playerGuessLetter)) {
+						System.out.println("Wrong!!");
+						
+						wrongGuessCounter++;
+						
+						wrongGuess();
+					}
+				}
+				
+				
+				if(isTheWordGuessed(playerGuess)) {
+					wordIsGuessed = true;
+					
+					System.out.println("");
+				}
+				
+				if(!wordIsGuessed) {
+					System.out.println("You have ran out of guesses");
+					
+				}
+		    }
+			}
+    
+	private static void printArray(char[] playerGuess) {
+		
+		for(int i =0;i < playerGuess.length; i++) {
+			
+			System.out.print(playerGuess[i] + " ");
+		}
 
+		
 		
 	}
-	
-	
-	public static String randomizedWord(Object randomIndex2) {
+
+
+	public static String randomizedWord() {
 		
-		String[] normalDifficulty = new String[] {"adult" , "aware" , "bunch" , "cringe" , "setup"};
+		String[] randomWords= new String[] {"adult" , "aware" , "bunch" , "jumps" , "setup"};
 		
+		char randomWordSeparated [] = new char [5];
+	
 		 Random randomizer = new Random();
 		 
-		 int randomIndex = randomizer.nextInt(normalDifficulty.length);
+		 int randomIndex = randomizer.nextInt(randomWords.length);
 		
-		 randomWord = normalDifficulty[randomIndex];
-		 
-		 for (int i = 0;i < randomWord.length(); i++){
-			    System.out.println(randomWord.charAt(i));
-			}
-
-		 
-		
+		 randomWord = randomWords[randomIndex];
+		 	
+			
 		 return(randomWord);
 		 
 	}
@@ -109,28 +166,50 @@ public class hängaGubbe {
 	
 	public static char checkIfContainsIntreger() {
 		
+		System.out.println("Enter your guess below");
 		
 	while (true){
 		
-		String playerGuess =input.nextLine();
+		String playerGuessWord =input.nextLine();
 		
-		a = playerGuess.charAt(0);
+		playerGuessLetter = playerGuessWord.charAt(0);
 		
-		 if (!Character.isLetter(a)){
+		 if (!Character.isLetter(playerGuessLetter)){
              System.out.println("Only enter letters!");
    }
-		 else if (Character.isLetter(a)) {
+		 else if (Character.isLetter(playerGuessLetter)) {
 			 
-		return (a);
+			
+		return (playerGuessLetter);
 		 }
 		 
 	}
 	
 	}
+	
+      private static boolean isTheWordGuessed(char[] playerGuess) {
+		
+		for(int i =0;i < playerGuess.length; i++) {
+			
+		if(playerGuess[i] == '_');
+		
+		return false;
 		}
+		
+		
+		return true;
+	}
+
+       private static void wrongGuess() {
+
+    	   
+    	   
+	
+	
+}
 	
 
-
+}
 	
 
 	
