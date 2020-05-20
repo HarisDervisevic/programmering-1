@@ -7,13 +7,13 @@ public class hängaGubbe {
 
 	static Scanner input = new Scanner(System.in);
 
-	private static char storedWord = ' ';
-
-	private static String randomWord;
+	private static String randomWordNormal;
+	
+	private static String randomWordHard;
 
 	private static char playerGuessLetter = ' ';
 
-	private static char[] playerGuess = new char['_'];
+	private static char[] underScoreArray = new char['_'];
 
 	static int amountOfGuesses = 7;
 
@@ -52,7 +52,7 @@ public class hängaGubbe {
 		System.out.println("---------------------------------------------------------------------------------------");
 
 		System.out.println("Normal: The normal mode gives you shorter and easier words to guess.\n");
-		System.out.println("Hard: Hard mode give you both longer and harder words to guess.\n\n\n");
+		System.out.println("Hard: Hard mode gives you harder words to guess.\n\n\n");
 		System.out.println("Please select the prefered difficulty by writing down normal or hard.\n\n\n");
 		System.out.println("---------------------------------------------------------------------------------");
 		choosenDifficulty();
@@ -79,8 +79,7 @@ public class hängaGubbe {
 		case "hard":
 			System.out.println("You have choosen the hard difficulty");
 
-			// hardDifficulty
-
+			hardDifficulty();
 			break;
 		}
 
@@ -101,10 +100,10 @@ public class hängaGubbe {
 	 */
 	public static void normalDifficulty() {
 
-		randomizedWord();
+		randomizedWordNormal();
 
-		for (int i = 0; i < randomWord.length(); i++) {
-			playerGuess[i] = '_';
+		for (int i = 0; i < randomWordNormal.length(); i++) {
+			underScoreArray[i] = '_';
 		}
 
 		boolean wordIsGuessed = false;
@@ -113,23 +112,95 @@ public class hängaGubbe {
 
 			System.out.println("Current guesses");
 
-			printArray(playerGuess);
+			printArray(underScoreArray);
 
 			checkIfContainsIntreger();
 
 			boolean letterGuessed = false;
 
-			for (int i = 0; i < randomWord.length(); i++) {
+			for (int i = 0; i < randomWordNormal.length(); i++) {
 
-				if (randomWord.charAt(i) == playerGuessLetter) {
+				if (randomWordNormal.charAt(i) == playerGuessLetter) {
 
-					playerGuess[i] = playerGuessLetter;
+					underScoreArray[i] = playerGuessLetter;
 
 					letterGuessed = true;
 
 				}
 
 			}
+
+			String test = new String(underScoreArray);
+
+			if (test.trim().equals(randomWordNormal)) {
+
+				wordIsGuessed = true;
+
+				youWon();
+			}
+
+			System.out.println(wordIsGuessed);
+
+			if (letterGuessed == false) {
+
+				System.out.println("Wrong!! Try again\n");
+
+				wrongGuessCounter++;
+
+				wrongGuess();
+			}
+
+		}
+
+	}
+	/**
+	 * Samma som tidigare metod normalDifficulty fast med andra variabler och andra slumpade
+	 * ord.
+	 */
+	
+	public static void hardDifficulty() {
+
+		randomizedWordHard();
+
+		for (int i = 0; i < randomWordHard.length(); i++) {
+			underScoreArray[i] = '_';
+		}
+
+		boolean wordIsGuessed = false;
+
+		while (wrongGuessCounter <= 7 && !wordIsGuessed) {
+
+			System.out.println("Current guesses");
+
+			printArray(underScoreArray);
+
+			checkIfContainsIntreger();
+
+			boolean letterGuessed = false;
+
+			for (int i = 0; i < randomWordHard.length(); i++) {
+
+				if (randomWordHard.charAt(i) == playerGuessLetter) {
+
+					underScoreArray[i] = playerGuessLetter;
+
+					letterGuessed = true;
+					
+					System.out.println("Correct!");
+
+				}
+
+			}
+
+			String test = new String(underScoreArray);
+
+			if (test.trim().equals(randomWordHard)) {
+
+				wordIsGuessed = true;
+
+				youWon();
+			}
+
 
 			if (letterGuessed == false) {
 
@@ -144,31 +215,22 @@ public class hängaGubbe {
 
 	}
 
-	private static boolean isTheWordGuessed(char[] array) {
-
-		for (int i = 0; i < array.length; i++) {
-			if (array[i] == '_')
-				;
-			return false;
-
-		}
-		return true;
-	}
-
 	/**
 	 * Denn metoden tar in playerGuess arrayen som är fylld med _ _ _ _ _ och
 	 * printar ut den varje gissning
 	 * 
-	 * @param playerGuess här tar jag in playerguess arrayen som är som sagt fylld
-	 *                    med _ _ för att göra det enklare för spelaren att gissa.
+	 * @param playerGuess här tar jag in underScoreArray arrayen som är som sagt
+	 *                    fylld med _ _ för att göra det enklare för spelaren att
+	 *                    gissa.
 	 */
 
-	private static void printArray(char[] playerGuess) {
+	private static void printArray(char[] underScoreArray) {
 
-		for (int i = 0; i < playerGuess.length; i++) {
+		for (int i = 0; i < underScoreArray.length; i++) {
 
-			System.out.print(playerGuess[i] + " ");
+			System.out.print(underScoreArray[i] + " ");
 		}
+		System.out.println();
 
 	}
 
@@ -181,39 +243,61 @@ public class hängaGubbe {
 	 * @return den returnar det slumpade ordet
 	 */
 
-	public static String randomizedWord() {
+	public static String randomizedWordNormal() {
 
 		String[] randomWords = new String[] { "adult", "aware", "bunch", "jumps", "setup" };
 
-		Random randomizer = new Random();
+		Random randomizerNormal = new Random();
 
-		int randomIndex = randomizer.nextInt(randomWords.length);
+		int randomIndex = randomizerNormal.nextInt(randomWords.length);
 
-		randomWord = randomWords[randomIndex];
+		randomWordNormal = randomWords[randomIndex];
 
-		return (randomWord);
+		return (randomWordNormal);
+
+	}
+	/**
+	 * Samma som randomizedWordNormal fast med andra ord.
+	 * @return
+	 */
+	
+	public static String randomizedWordHard() {
+
+		String[] randomWords = new String[] { "shops", "teeth", "which", "mocking", "urban" };
+
+		Random randomizerHard = new Random();
+
+		int randomIndex = randomizerHard.nextInt(randomWords.length);
+
+		randomWordHard = randomWords[randomIndex];
+
+		return (randomWordHard);
 
 	}
 
+	/**
+	 * Denna array gör din gissning och sedan kolllar ifall den är en boksatv med
+	 * isLetter ifall den inte är det får du ett error meddelande, annars skickas du
+	 * tillbaka till huvud metoden och spelet fortsätter. Ifall du gissar på ett ord
+	 * kommer den ta den första bokstaven bara eftersom jag satte charAt till 0 så
+	 * att den tar bara den första boskatven som input.
+	 * 
+	 * @return din gissning som ska vara en bokstav
+	 */
+
 	public static char checkIfContainsIntreger() {
 
-		System.out.println("Enter your guess below");
 
 		while (true) {
 
 			String playerGuessWord = input.nextLine();
-			
-			 isTheWordGuessed(playerGuess);
-			 
-			 boolean isTheWordGuessed;
-			if(isTheWordGuessed = true) {
-				 youWon();
-			 }
 
 			playerGuessLetter = playerGuessWord.charAt(0);
 
 			if (!Character.isLetter(playerGuessLetter)) {
-				System.out.println("Only enter letters!");
+
+				System.out.println("Only enter letters please!");
+
 			} else if (Character.isLetter(playerGuessLetter)) {
 
 				return (playerGuessLetter);
@@ -224,13 +308,9 @@ public class hängaGubbe {
 	}
 
 	/**
-	 * Denna metoden kollar igenom metoden som är fylld med _ sedan innan och ifall
-	 * den hittar ett _ så skickad du tillbaka och fortsätter med spelet. Annars
-	 * skickas du tillbaka och
-	 * 
-	 * @param playerGuess
-	 * @return
-	 * @return
+	 * till denna metod kommer du ifall di gissat fel och med hjälp av
+	 * wrongGuessCounter kommer den displaya rätt hängd gubbe beroende på hur många
+	 * fel gissningar du har gjort och sedan skickas tillbaka till huvudspelet
 	 */
 
 	private static void wrongGuess() {
@@ -279,31 +359,39 @@ public class hängaGubbe {
 			System.out.print(" " + "   +---+\n" + "  |   |\n" + "  O   |\n" + " /|\\ |\n" + " / \\ |\n" + "      |\n"
 					+ "=========''']");
 			System.out.println("You didnt manage to guess the right word:(");
-			System.out.println("The  rigth word was:" + " " + randomWord);
 			gameEnded();
 			break;
 
 		}
 
 	}
+	
+	/**
+	 * Om du vunnit får du ett meddelande att du har och tar dig till slutmetoden
+	 */
 
 	private static void youWon() {
-		System.out.println("Congrats you won the game");
+		System.out.println("------------------------------------------------------------------------------");
+		System.out.println("Congrats you won the game\n");
 		gameEnded();
 
 	}
+	/**
+	 * The game has ended,om du har antigen gissta på ordet eller fått slut på gisssningar kommer 
+	 * du hit och får välja ifall du vill köra igen eller inte.
+	 */
 
 	public static void gameEnded() {
 
-		System.out.println("The game has now ended");
-		System.out.println("Would you like to play another round or exit the game?");
+		System.out.println("The game has now ended\n");
+		System.out.println("Would you like to play another round or exit the game?" + "yes or no");
 
 		String playAgain = input.nextLine();
 
 		switch (playAgain) {
 
 		case "yes":
-			System.out.println("You have choosen to play another round");
+			System.out.println("You have choosen to play another round\n\n\n");
 
 			welcomeToGame();
 
